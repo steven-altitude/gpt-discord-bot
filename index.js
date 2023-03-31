@@ -7,7 +7,7 @@ app.listen(PORT, (error) =>{
                    and App is listening on port "+ PORT)
     else 
         console.log("Error occurred, server can't start", error);
-    }
+    },
 
 require('dotenv/config');
 const { Client, IntentsBitField } = require('discord.js');
