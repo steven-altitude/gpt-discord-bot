@@ -1,10 +1,3 @@
-require('dotenv/config');
-const { Client, IntentsBitField } = require('discord.js');
-const { Configuration, OpenAIApi } = require('openai');
-
-
-const express = require('express');
-  
 const app = express();
 const PORT = 3000;
   
@@ -15,6 +8,15 @@ app.listen(PORT, (error) =>{
     else 
         console.log("Error occurred, server can't start", error);
     }
+
+require('dotenv/config');
+const { Client, IntentsBitField } = require('discord.js');
+const { Configuration, OpenAIApi } = require('openai');
+const express = require('express');
+  
+
+
+
 );
 
 const client = new Client({
