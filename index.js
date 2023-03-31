@@ -1,22 +1,30 @@
+
+const express = require('express');
+  
 const app = express();
 const PORT = 3000;
   
 app.listen(PORT, (error) =>{
     if(!error)
-        console.log("Server is Successfully Running "+ PORT)
+        console.log("Server is Successfully Running,and App is listening on port "+ PORT)
     else 
         console.log("Error occurred, server can't start", error);
-    };
+    });
+
 
 require('dotenv/config');
 const { Client, IntentsBitField } = require('discord.js');
 const { Configuration, OpenAIApi } = require('openai');
-const express = require('express');
-  
+
+const client = new Client({
+    intents: [
+        IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildMessages,
+        IntentsBitField.Flags.MessageContent,
+    ],
+});
 
 
-
-);
 
 const client = new Client({
     intents: [
