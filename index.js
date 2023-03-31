@@ -1,4 +1,7 @@
 
+require('dotenv/config');
+const { Client, IntentsBitField } = require('discord.js');
+const { Configuration, OpenAIApi } = require('openai');
 const express = require('express');
   
 const app = express();
@@ -11,10 +14,6 @@ app.listen(PORT, (error) =>{
         console.log("Error occurred, server can't start", error);
     });
 
-
-require('dotenv/config');
-const { Client, IntentsBitField } = require('discord.js');
-const { Configuration, OpenAIApi } = require('openai');
 
 const client = new Client({
     intents: [
