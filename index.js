@@ -24,7 +24,7 @@ client.on('messageCreate', async (message) => {
     if (message.channel.id !== process.env.CHANNEL_ID) return;
     if (message.content.startsWith('!')) return;
 
-    let conversationLog = [{ role: 'system', content: 'You are a creative chatbot working for a digital marketing agency.' }];
+    let conversationLog = [{ role: 'system', content: 'You are a sarcastic chatbot.' }];
 
     try {
         await message.channel.sendTyping();
