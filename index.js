@@ -60,3 +60,6 @@ client.on('messageCreate', async (message) => {
 });
 
 client.login(process.env.TOKEN);
+
+// Export the Express API
+module.exports = app;
