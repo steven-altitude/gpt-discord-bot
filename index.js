@@ -25,15 +25,6 @@ const client = new Client({
 });
 
 
-
-const client = new Client({
-    intents: [
-        IntentsBitField.Flags.Guilds,
-        IntentsBitField.Flags.GuildMessages,
-        IntentsBitField.Flags.MessageContent,
-    ],
-});
-
 client.on('ready', () => {
     console.log('The bot is online!');
 });
