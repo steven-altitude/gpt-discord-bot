@@ -1,6 +1,6 @@
 {
    "version": 2,
-   "name": "discordbot,
+   "name": "discordbot",
    "builds": [
       { "src": "app.js", "use": "@vercel/node" }
    ],
