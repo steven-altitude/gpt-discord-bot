@@ -2,6 +2,21 @@ require('dotenv/config');
 const { Client, IntentsBitField } = require('discord.js');
 const { Configuration, OpenAIApi } = require('openai');
 
+
+const express = require('express');
+  
+const app = express();
+const PORT = 3000;
+  
+app.listen(PORT, (error) =>{
+    if(!error)
+        console.log("Server is Successfully Running, 
+                   and App is listening on port "+ PORT)
+    else 
+        console.log("Error occurred, server can't start", error);
+    }
+);
+
 const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
@@ -62,4 +77,5 @@ client.on('messageCreate', async (message) => {
 client.login(process.env.TOKEN);
 
 
-
+// Export the Express API
+module.exports = app
