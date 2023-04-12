@@ -1,6 +1,18 @@
 require('dotenv/config');
 const { Client, IntentsBitField } = require('discord.js');
 const { Configuration, OpenAIApi } = require('openai');
+const express = require('express');
+  
+const app = express();
+const PORT = 3000;
+  
+app.listen(PORT, (error) =>{
+    if(!error)
+        console.log("Server is Successfully Running,and App is listening on port "+ PORT)
+    else 
+        console.log("Error occurred, server can't start", error);
+    });
+
 
 const client = new Client({
     intents: [
@@ -9,6 +21,7 @@ const client = new Client({
         IntentsBitField.Flags.MessageContent,
     ],
 });
+
 
 client.on('ready', () => {
     console.log('The bot is online!');
@@ -24,7 +37,7 @@ client.on('messageCreate', async (message) => {
     if (message.channel.id !== process.env.CHANNEL_ID) return;
     if (message.content.startsWith('!')) return;
 
-    let conversationLog = [{ role: 'system', content: 'You are a creative chatbot working for a digital marketing agency.' }];
+    let conversationLog = [{ role: 'system', content: 'You are a sarcastic chatbot.' }];
 
     try {
         await message.channel.sendTyping();
@@ -58,6 +71,9 @@ client.on('messageCreate', async (message) => {
         console.log(`ERR: ${error}`);
     }
 });
-client.login(process.env.TOKEN);
-module.exports = client;
 
+client.login(process.env.TOKEN);
+
+
+// Export the Express API
+module.exports = app;
