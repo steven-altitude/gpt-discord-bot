@@ -53,9 +53,13 @@ client.on('messageCreate', async (message) => {
                 console.log(`OPENAI ERR: ${error}`);
             });
 
-    
-        const replyMessage = result.data.choices[0].message.slice(0, 2000);
-        message.reply(replyMessage);
+    const reply = result.data.choices[0].text;
+        if (reply.length > 2000) {
+            message.reply(reply.substring(0, 2000));
+        } else {
+            message.reply(reply);
+        }
+
     } catch (error) {
         console.log(`ERR: ${error}`);
     }
