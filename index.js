@@ -4,9 +4,9 @@ const { Configuration, OpenAIApi } = require('openai');
 
 const client = new Client({
     intents: [
-        IntentsBitField.Flags.Guilds,
-        IntentsBitField.Flags.GuildMessages,
-        IntentsBitField.Flags.MessageContent,
+        IntentsBitField.FLAGS.GUILDS,
+        IntentsBitField.FLAGS.GUILD_MESSAGES,
+        IntentsBitField.FLAGS.MESSAGE_CREATE,
     ],
 });
 
@@ -53,10 +53,12 @@ client.on('messageCreate', async (message) => {
                 console.log(`OPENAI ERR: ${error}`);
             });
 
-        message.reply(result.data.choices[0].message);
+        message.reply(result.data.choices[0].text);
     } catch (error) {
         console.log(`ERR: ${error}`);
     }
 });
 
-client.login(process.env.TOKEN);
+module.exports = {
+    server: client
+};
