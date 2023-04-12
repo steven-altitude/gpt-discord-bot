@@ -22,7 +22,7 @@ client.on('messageCreate', async (message) => {
 
   const conversationLog = [
     {
-      role: 'user',
+      speaker: 'USER',
       text: message.content,
     },
   ];
