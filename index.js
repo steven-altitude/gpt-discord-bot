@@ -55,7 +55,7 @@ client.on('messageCreate', async (message) => {
 
        const response = result.data.choices[0].text.trim();
        if (response.length > 2000) {
-         message.reply("The response was too long, please try again.");
+         message.reply("La respuesta es muy larga, por favor intenta nuevamente");
          } else {
           message.reply(response);
 }
