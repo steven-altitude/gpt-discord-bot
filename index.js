@@ -53,7 +53,13 @@ client.on('messageCreate', async (message) => {
                 console.log(`OPENAI ERR: ${error}`);
             });
 
-        message.reply(result.data.choices[0].message);
+       const response = result.data.choices[0].text.trim();
+       if (response.length > 2000) {
+         message.reply("The response was too long, please try again.");
+         } else {
+          message.reply(response);
+}
+
     } catch (error) {
         console.log(`ERR: ${error}`);
     }
